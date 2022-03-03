@@ -1,10 +1,17 @@
+/*
+ * hdmi_gen.sv
+ *
+ *  Created on: 2022-03-03 16:58
+ *      Author: Jack Chen <redchenjs@live.com>
+ */
+
 `include "svo/svo_defines.vh"
 
-module hdmi(
+module hdmi_gen(
     input logic clk_i,
     input logic rst_n_i,
 
-    input logic aux_clk_i,
+    input logic clk_5x_i,
 
     output logic       tmds_txc_o_p,
     output logic       tmds_txc_o_n,
@@ -22,9 +29,6 @@ localparam SVO_BITS_PER_GREEN = 8;
 localparam SVO_BITS_PER_BLUE  = 8;
 localparam SVO_BITS_PER_ALPHA = 0;
 
-logic [3:0] btn;
-assign auto_btn_o = btn;
-
 logic                          s1_axis_tvalid;
 logic                          s1_axis_tready;
 logic [SVO_BITS_PER_PIXEL-1:0] s1_axis_tdata;
@@ -40,7 +44,6 @@ logic                          video_enc_tready;
 logic [SVO_BITS_PER_PIXEL-1:0] video_enc_tdata;
 logic                    [3:0] video_enc_tuser;
 
-logic [2:0] tmds_d;
 logic [2:0] tmds_d0, tmds_d1, tmds_d2, tmds_d3, tmds_d4;
 logic [2:0] tmds_d5, tmds_d6, tmds_d7, tmds_d8, tmds_d9;
 
@@ -62,8 +65,8 @@ svo_pong #(`SVO_PASS_PARAMS) svo_pong(
     .resetn_game(1'b1),
     .enable(1'b1),
 
-    .btn(btn),
-    .auto_btn(btn),
+    .btn(auto_btn_o),
+    .auto_btn(auto_btn_o),
 
     .in_axis_tvalid(s1_axis_tvalid),
     .in_axis_tready(s1_axis_tready),
@@ -121,27 +124,27 @@ svo_tmds svo_tmds_2(
            tmds_d4[2], tmds_d3[2], tmds_d2[2], tmds_d1[2], tmds_d0[2]})
 );
 
-OSER10 tmds_serdes [2:0] (
-    .Q(tmds_d),
-    .D0(tmds_d0),
-    .D1(tmds_d1),
-    .D2(tmds_d2),
-    .D3(tmds_d3),
-    .D4(tmds_d4),
-    .D5(tmds_d5),
-    .D6(tmds_d6),
-    .D7(tmds_d7),
-    .D8(tmds_d8),
-    .D9(tmds_d9),
-    .PCLK(clk_i),
-    .FCLK(aux_clk_i),
-    .RESET(~rst_n_i)
-);
+tmds_out tmds_out(
+    .clk_i(clk_i),
+    .rst_n_i(rst_n_i),
 
-ELVDS_OBUF tmds_bufds [3:0] (
-    .I({clk_i, tmds_d}),
-    .O({tmds_txc_o_p, tmds_txd_o_p}),
-    .OB({tmds_txc_o_n, tmds_txd_o_n})
+    .clk_5x_i(clk_5x_i),
+
+    .tmds_d0_i(tmds_d0),
+    .tmds_d1_i(tmds_d1),
+    .tmds_d2_i(tmds_d2),
+    .tmds_d3_i(tmds_d3),
+    .tmds_d4_i(tmds_d4),
+    .tmds_d5_i(tmds_d5),
+    .tmds_d6_i(tmds_d6),
+    .tmds_d7_i(tmds_d7),
+    .tmds_d8_i(tmds_d8),
+    .tmds_d9_i(tmds_d9),
+
+    .tmds_txc_o_p(tmds_txc_o_p),
+    .tmds_txc_o_n(tmds_txc_o_n),
+    .tmds_txd_o_p(tmds_txd_o_p),
+    .tmds_txd_o_n(tmds_txd_o_n)
 );
 
 endmodule

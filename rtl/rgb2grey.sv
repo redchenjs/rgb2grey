@@ -1,3 +1,10 @@
+/*
+ * rgb2grey.sv
+ *
+ *  Created on: 2022-03-03 16:58
+ *      Author: Jack Chen <redchenjs@live.com>
+ */
+
 module rgb2grey(
     input logic clk_i,
     input logic rst_n_i,
@@ -15,10 +22,6 @@ logic sys_rst_n;
 
 logic aux_clk;
 
-logic [3:0] auto_btn;
-
-assign led_n_o = ~auto_btn;
-
 sys_ctl sys_ctl(
     .clk_i(clk_i),
     .rst_n_i(rst_n_i),
@@ -29,18 +32,18 @@ sys_ctl sys_ctl(
     .aux_clk_o(aux_clk)
 );
 
-hdmi hdmi(
+hdmi_gen hdmi_gen(
     .clk_i(sys_clk),
     .rst_n_i(sys_rst_n),
 
-    .aux_clk_i(aux_clk),
+    .clk_5x_i(aux_clk),
 
     .tmds_txc_o_p(tmds_txc_o_p),
     .tmds_txc_o_n(tmds_txc_o_n),
     .tmds_txd_o_p(tmds_txd_o_p),
     .tmds_txd_o_n(tmds_txd_o_n),
 
-    .auto_btn_o(auto_btn)
+    .auto_btn_o(led_n_o)
 );
 
 endmodule

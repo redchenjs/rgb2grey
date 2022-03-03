@@ -1,6 +1,6 @@
 IO_LOC  "clk_i" 52;
 IO_PORT "clk_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC  "rst_n_i" 3;
+IO_LOC  "rst_n_i" 4;
 IO_PORT "rst_n_i" PULL_MODE=UP;
 
 IO_LOC  "led_n_o[5]" 16;
