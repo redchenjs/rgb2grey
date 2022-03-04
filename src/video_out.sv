@@ -1,11 +1,11 @@
 /*
- * tmds_out.sv
+ * video_out.sv
  *
  *  Created on: 2022-03-03 15:55
  *      Author: Jack Chen <redchenjs@live.com>
  */
 
-module tmds_out(
+module video_out(
     input logic clk_i,
     input logic rst_n_i,
 
@@ -22,10 +22,10 @@ module tmds_out(
     input logic [2:0] tmds_d8_i,
     input logic [2:0] tmds_d9_i,
 
-    output logic       tmds_txc_o_p,
-    output logic       tmds_txc_o_n,
-    output logic [2:0] tmds_txd_o_p,
-    output logic [2:0] tmds_txd_o_n
+    output logic       tmds_clk_o_p,
+    output logic       tmds_clk_o_n,
+    output logic [2:0] tmds_data_o_p,
+    output logic [2:0] tmds_data_o_n
 );
 
 logic [2:0] tmds_data;
@@ -49,8 +49,8 @@ OSER10 OSERDES [2:0] (
 
 ELVDS_OBUF OBUFDS [3:0] (
     .I({clk_i, tmds_data}),
-    .O({tmds_txc_o_p, tmds_txd_o_p}),
-    .OB({tmds_txc_o_n, tmds_txd_o_n})
+    .O({tmds_clk_o_p, tmds_data_o_p}),
+    .OB({tmds_clk_o_n, tmds_data_o_n})
 );
 
 endmodule

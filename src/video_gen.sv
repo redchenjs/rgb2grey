@@ -1,5 +1,5 @@
 /*
- * hdmi_gen.sv
+ * video_gen.sv
  *
  *  Created on: 2022-03-03 16:58
  *      Author: Jack Chen <redchenjs@live.com>
@@ -7,18 +7,16 @@
 
 `include "svo/svo_defines.vh"
 
-module hdmi_gen(
+module video_gen(
     input logic clk_i,
     input logic rst_n_i,
 
     input logic clk_5x_i,
 
-    output logic       tmds_txc_o_p,
-    output logic       tmds_txc_o_n,
-    output logic [2:0] tmds_txd_o_p,
-    output logic [2:0] tmds_txd_o_n,
-
-    output logic [3:0] auto_btn_o
+    output logic       tmds_clk_o_p,
+    output logic       tmds_clk_o_n,
+    output logic [2:0] tmds_data_o_p,
+    output logic [2:0] tmds_data_o_n
 );
 
 localparam SVO_MODE           = "1366x768R";
@@ -44,6 +42,8 @@ logic                          video_enc_tready;
 logic [SVO_BITS_PER_PIXEL-1:0] video_enc_tdata;
 logic                    [3:0] video_enc_tuser;
 
+logic [3:0] auto_btn;
+
 logic [2:0] tmds_d0, tmds_d1, tmds_d2, tmds_d3, tmds_d4;
 logic [2:0] tmds_d5, tmds_d6, tmds_d7, tmds_d8, tmds_d9;
 
@@ -65,8 +65,8 @@ svo_pong #(`SVO_PASS_PARAMS) svo_pong(
     .resetn_game(1'b1),
     .enable(1'b1),
 
-    .btn(auto_btn_o),
-    .auto_btn(auto_btn_o),
+    .btn(auto_btn),
+    .auto_btn(auto_btn),
 
     .in_axis_tvalid(s1_axis_tvalid),
     .in_axis_tready(s1_axis_tready),
@@ -124,7 +124,7 @@ svo_tmds svo_tmds_2(
            tmds_d4[2], tmds_d3[2], tmds_d2[2], tmds_d1[2], tmds_d0[2]})
 );
 
-tmds_out tmds_out(
+video_out video_out(
     .clk_i(clk_i),
     .rst_n_i(rst_n_i),
 
@@ -141,10 +141,10 @@ tmds_out tmds_out(
     .tmds_d8_i(tmds_d8),
     .tmds_d9_i(tmds_d9),
 
-    .tmds_txc_o_p(tmds_txc_o_p),
-    .tmds_txc_o_n(tmds_txc_o_n),
-    .tmds_txd_o_p(tmds_txd_o_p),
-    .tmds_txd_o_n(tmds_txd_o_n)
+    .tmds_clk_o_p(tmds_clk_o_p),
+    .tmds_clk_o_n(tmds_clk_o_n),
+    .tmds_data_o_p(tmds_data_o_p),
+    .tmds_data_o_n(tmds_data_o_n)
 );
 
 endmodule

@@ -9,12 +9,10 @@ module rgb2grey(
     input logic clk_i,
     input logic rst_n_i,
 
-    output logic       tmds_txc_o_p,
-    output logic       tmds_txc_o_n,
-    output logic [2:0] tmds_txd_o_p,
-    output logic [2:0] tmds_txd_o_n,
-
-    output logic [5:0] led_n_o
+    output logic       tmds_clk_o_p,
+    output logic       tmds_clk_o_n,
+    output logic [2:0] tmds_data_o_p,
+    output logic [2:0] tmds_data_o_n
 );
 
 logic sys_clk;
@@ -32,18 +30,16 @@ sys_ctl sys_ctl(
     .aux_clk_o(aux_clk)
 );
 
-hdmi_gen hdmi_gen(
+video_gen video_gen(
     .clk_i(sys_clk),
     .rst_n_i(sys_rst_n),
 
     .clk_5x_i(aux_clk),
 
-    .tmds_txc_o_p(tmds_txc_o_p),
-    .tmds_txc_o_n(tmds_txc_o_n),
-    .tmds_txd_o_p(tmds_txd_o_p),
-    .tmds_txd_o_n(tmds_txd_o_n),
-
-    .auto_btn_o(led_n_o)
+    .tmds_clk_o_p(tmds_clk_o_p),
+    .tmds_clk_o_n(tmds_clk_o_n),
+    .tmds_data_o_p(tmds_data_o_p),
+    .tmds_data_o_n(tmds_data_o_n)
 );
 
 endmodule
