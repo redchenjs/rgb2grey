@@ -3,10 +3,12 @@
 <Project>
     <Template>FPGA</Template>
     <Version>5</Version>
-    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <Device name="GW1NSR-4C" pn="GW1NSR-LV4CQN48PC6/I5">gw1nsr4c-000</Device>
     <FileList>
-        <File path="ip/pll/pll.v" type="file.verilog" enable="1"/>
         <File path="ip/clkdiv/clkdiv.v" type="file.verilog" enable="1"/>
+        <File path="ip/pll/pll.v" type="file.verilog" enable="1"/>
+        <File path="src/rgb2grey.sv" type="file.verilog" enable="1"/>
+        <File path="src/rst_syn.sv" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_defines.vh" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_enc.v" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_openldi.v" type="file.verilog" enable="1"/>
@@ -16,11 +18,9 @@
         <File path="src/svo/svo_tmds.v" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_utils.v" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_vdma.v" type="file.verilog" enable="1"/>
-        <File path="src/rst_syn.sv" type="file.verilog" enable="1"/>
         <File path="src/sys_ctl.sv" type="file.verilog" enable="1"/>
         <File path="src/video_gen.sv" type="file.verilog" enable="1"/>
         <File path="src/video_out.sv" type="file.verilog" enable="1"/>
-        <File path="src/rgb2grey.sv" type="file.verilog" enable="1"/>
         <File path="cst/rgb2grey.cst" type="file.cst" enable="1"/>
         <File path="cst/rgb2grey.sdc" type="file.sdc" enable="1"/>
     </FileList>

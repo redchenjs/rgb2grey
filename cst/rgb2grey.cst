@@ -1,13 +1,51 @@
-IO_LOC  "clk_i" 52;
+IO_LOC  "clk_i" 45;
 IO_PORT "clk_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC  "rst_n_i" 4;
-IO_PORT "rst_n_i" PULL_MODE=UP;
+IO_LOC  "rst_n_i" 14;
+IO_PORT "rst_n_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 
-IO_LOC  "tmds_clk_o_p" 69,68;
-IO_PORT "tmds_clk_o_p" PULL_MODE=NONE DRIVE=8;
-IO_LOC  "tmds_data_o_p[2]" 75,74;
-IO_PORT "tmds_data_o_p[2]" PULL_MODE=NONE DRIVE=8;
-IO_LOC  "tmds_data_o_p[1]" 73,72;
-IO_PORT "tmds_data_o_p[1]" PULL_MODE=NONE DRIVE=8;
-IO_LOC  "tmds_data_o_p[0]" 71,70;
-IO_PORT "tmds_data_o_p[0]" PULL_MODE=NONE DRIVE=8;
+IO_LOC  "dvp_pclk_i" 41;
+IO_PORT "dvp_pclk_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC  "dvp_hsync_i" 42;
+IO_PORT "dvp_hsync_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC  "dvp_vsync_i" 43;
+IO_PORT "dvp_vsync_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[7]" 40;
+IO_PORT "dvp_data_i[7]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[6]" 39;
+IO_PORT "dvp_data_i[6]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[5]" 23;
+IO_PORT "dvp_data_i[5]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[4]" 16;
+IO_PORT "dvp_data_i[4]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[3]" 18;
+IO_PORT "dvp_data_i[3]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[2]" 20;
+IO_PORT "dvp_data_i[2]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[1]" 19;
+IO_PORT "dvp_data_i[1]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+IO_LOC  "dvp_data_i[0]" 17;
+IO_PORT "dvp_data_i[0]" IO_TYPE=LVCMOS25 PULL_MODE=UP;
+
+IO_LOC  "dvp_scl_io" 44;
+IO_PORT "dvp_scl_io" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC  "dvp_sda_io" 46;
+IO_PORT "dvp_sda_io" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+IO_LOC  "dvp_xclk_o" 33;
+IO_PORT "dvp_xclk_o" IO_TYPE=LVCMOS25;
+IO_LOC  "dvp_af_vcc_o" 21;
+IO_PORT "dvp_af_vcc_o" IO_TYPE=LVCMOS25;
+IO_LOC  "dvp_af_gnd_o" 22;
+IO_PORT "dvp_af_gnd_o" IO_TYPE=LVCMOS25;
+
+IO_LOC  "tmds_clk_o_p" 28,27;
+IO_PORT "tmds_clk_o_p" IO_TYPE=LVDS25E;
+IO_LOC  "tmds_data_o_p[2]" 35,34;
+IO_PORT "tmds_data_o_p[2]" IO_TYPE=LVDS25E;
+IO_LOC  "tmds_data_o_p[1]" 32,31;
+IO_PORT "tmds_data_o_p[1]" IO_TYPE=LVDS25E;
+IO_LOC  "tmds_data_o_p[0]" 30,29;
+IO_PORT "tmds_data_o_p[0]" IO_TYPE=LVDS25E;
+
+IO_LOC "led_o" 10;
+IO_PORT "led_o" IO_TYPE=LVCMOS33;
