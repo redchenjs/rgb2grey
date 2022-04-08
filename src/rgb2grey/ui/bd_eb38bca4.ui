@@ -1,0 +1,58 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.193354",
+   "Default View_TopLeft":"-455,-1924",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port SDIO -pg 1 -lvl 7 -x 2140 -y -560 -defaultsOSRD
+preplace port TMDS -pg 1 -lvl 7 -x 2140 -y 230 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 7 -x 2140 -y -170 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 7 -x 2140 -y -140 -defaultsOSRD
+preplace portBus LED -pg 1 -lvl 7 -x 2140 -y -410 -defaultsOSRD
+preplace portBus BTN -pg 1 -lvl 0 -x -30 -y -410 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 4 -x 1110 -y -100 -defaultsOSRD
+preplace inst axi_video_gen_0 -pg 1 -lvl 2 -x 380 -y -430 -defaultsOSRD
+preplace inst axi_video_out_0 -pg 1 -lvl 2 -x 380 -y 220 -defaultsOSRD
+preplace inst smartconnect_0 -pg 1 -lvl 3 -x 720 -y -240 -defaultsOSRD
+preplace inst rst_ps7_0_125M -pg 1 -lvl 5 -x 1560 -y -250 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 6 -x 1950 -y -20 -defaultsOSRD
+preplace inst rst_ps7_0_80M -pg 1 -lvl 5 -x 1560 -y 120 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 380 -y -120 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 6 -x 1950 -y -410 -defaultsOSRD
+preplace inst xlslice_0 -pg 1 -lvl 1 -x 90 -y -410 -defaultsOSRD
+preplace netloc BTN_1 1 0 1 N -410
+preplace netloc axi_video_gen_0_pic_load_data 1 2 4 NJ -420 NJ -420 NJ -420 N
+preplace netloc axi_video_gen_0_pic_load_done 1 2 4 NJ -400 NJ -400 NJ -400 N
+preplace netloc axi_video_gen_0_pic_load_error 1 2 4 NJ -380 NJ -380 NJ -380 N
+preplace netloc axi_video_gen_0_pic_load_head 1 2 4 NJ -440 NJ -440 NJ -440 N
+preplace netloc clk_wiz_0_clk_out1 1 1 2 190 -200 510
+preplace netloc clk_wiz_0_clk_out2 1 1 2 200 -30 510
+preplace netloc clk_wiz_0_locked 1 2 3 NJ -100 860J -230 1360
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 5 210 -40 540 -40 870 30 1350 0 1760
+preplace netloc processing_system7_0_FCLK_CLK1 1 1 4 200 -310 520 -140 870J -220 1340
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 4 230 -320 520 -340 N -340 1320
+preplace netloc processing_system7_0_FCLK_RESET1_N 1 4 1 1320 -40n
+preplace netloc rst_ps7_0_125M_peripheral_aresetn 1 1 5 220 40 550 40 NJ 40 1360J 10 1770
+preplace netloc rst_ps7_0_80M_peripheral_aresetn 1 1 5 190 -540 550 -450 N -450 N -450 1740
+preplace netloc xlconcat_0_dout 1 6 1 N -410
+preplace netloc xlslice_0_Dout 1 1 1 N -410
+preplace netloc axi_video_gen_0_M_AXI 1 2 1 540 -480n
+preplace netloc axi_video_gen_0_SDIO 1 2 5 NJ -460 N -460 NJ -460 1740 -560 N
+preplace netloc axi_video_out_0_M_AXI 1 2 1 530 -260n
+preplace netloc axi_video_out_0_TMDS 1 2 5 NJ 230 N 230 NJ 230 N 230 N
+preplace netloc processing_system7_0_DDR 1 4 3 1330J -150 1780 -170 N
+preplace netloc processing_system7_0_FIXED_IO 1 4 3 NJ -140 N -140 N
+preplace netloc processing_system7_0_M_AXI_GP0 1 4 2 NJ -120 1780
+preplace netloc ps7_0_axi_periph_M00_AXI 1 1 6 230 20 NJ 20 NJ 20 NJ 20 1750J 100 2100
+preplace netloc smartconnect_0_M00_AXI 1 3 1 880 -240n
+levelinfo -pg 1 -30 90 380 720 1110 1560 1950 2140
+pagesize -pg 1 -db -bbox -sgen -140 -580 2250 340
+"
+}
+{
+   "da_axi4_cnt":"2",
+   "da_board_cnt":"1",
+   "da_clkrst_cnt":"3",
+   "da_ps7_cnt":"1"
+}
