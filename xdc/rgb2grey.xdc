@@ -11,8 +11,8 @@ set_property -dict {PACKAGE_PIN B19 IOSTANDARD TMDS_33} [get_ports {TMDS_data_p[
 set_property -dict {PACKAGE_PIN C20 IOSTANDARD TMDS_33} [get_ports {TMDS_data_p[1]}]
 set_property -dict {PACKAGE_PIN D19 IOSTANDARD TMDS_33} [get_ports {TMDS_data_p[0]}]
 
-set_property -dict {PACKAGE_PIN T20 IOSTANDARD LVCMOS33} [get_ports SDIO_cmd]
 set_property -dict {PACKAGE_PIN U20 IOSTANDARD LVCMOS33} [get_ports SDIO_clk]
+set_property -dict {PACKAGE_PIN T20 IOSTANDARD LVCMOS33} [get_ports SDIO_cmd]
 set_property -dict {PACKAGE_PIN V20 IOSTANDARD LVCMOS33} [get_ports {SDIO_data[3]}]
 set_property -dict {PACKAGE_PIN W20 IOSTANDARD LVCMOS33} [get_ports {SDIO_data[2]}]
 set_property -dict {PACKAGE_PIN R17 IOSTANDARD LVCMOS33} [get_ports {SDIO_data[1]}]
