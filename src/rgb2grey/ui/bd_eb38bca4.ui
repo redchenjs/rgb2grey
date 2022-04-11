@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.489747",
-   "Default View_TopLeft":"-278,-664",
+   "Default View_ScaleFactor":"0.426348",
+   "Default View_TopLeft":"-530,-884",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
@@ -21,30 +21,32 @@ preplace inst xlconcat_0 -pg 1 -lvl 6 -x 1920 -y -410 -defaultsOSRD
 preplace inst xlslice_0 -pg 1 -lvl 1 -x -50 -y -410 -defaultsOSRD
 preplace inst axi_video_gen_0 -pg 1 -lvl 2 -x 260 -y -430 -defaultsOSRD
 preplace inst axi_video_out_0 -pg 1 -lvl 2 -x 260 -y 220 -defaultsOSRD
-preplace netloc BTN_1 1 0 1 N -410
+preplace inst xlslice_1 -pg 1 -lvl 1 -x -50 -y -270 -defaultsOSRD
+preplace netloc BTN_1 1 0 1 -150 -410n
 preplace netloc axi_video_gen_0_pic_load_data 1 2 4 NJ -420 NJ -420 NJ -420 N
 preplace netloc axi_video_gen_0_pic_load_done 1 2 4 NJ -400 NJ -400 NJ -400 N
 preplace netloc axi_video_gen_0_pic_load_error 1 2 4 NJ -380 NJ -380 NJ -380 N
 preplace netloc axi_video_gen_0_pic_load_head 1 2 4 NJ -440 NJ -440 NJ -440 N
 preplace netloc clk_wiz_0_clk_out1 1 1 2 50 -200 400
 preplace netloc clk_wiz_0_clk_out2 1 1 2 60 -190 390
-preplace netloc clk_wiz_0_locked 1 2 3 NJ -80 810J 20 1280
-preplace netloc processing_system7_0_FCLK_CLK0 1 1 5 70 -210 430 -130 830 -230 1320 -60 1740
-preplace netloc processing_system7_0_FCLK_CLK1 1 1 4 50 -310 440 -340 NJ -340 1290
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 4 90 30 N 30 N 30 1270
+preplace netloc clk_wiz_0_locked 1 2 3 NJ -80 810J 20 1290
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 5 70 -210 430 -130 830 -230 1330 -60 1730
+preplace netloc processing_system7_0_FCLK_CLK1 1 1 4 50 -310 430 -340 NJ -340 1300
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 4 90 30 N 30 N 30 1280
 preplace netloc processing_system7_0_FCLK_RESET1_N 1 4 1 1260 -40n
-preplace netloc rst_ps7_0_125M_peripheral_aresetn 1 1 5 90 40 440 40 NJ 40 1310J 20 1720
-preplace netloc rst_ps7_0_80M_peripheral_aresetn 1 1 5 90 -320 390J -350 NJ -350 NJ -350 1710
+preplace netloc rst_ps7_0_125M_peripheral_aresetn 1 1 5 90 40 440 40 NJ 40 1320J 20 1720
+preplace netloc rst_ps7_0_80M_peripheral_aresetn 1 1 5 90 -320 390J -360 NJ -360 NJ -360 1710
 preplace netloc xlconcat_0_dout 1 6 1 N -410
 preplace netloc xlslice_0_Dout 1 1 1 N -410
+preplace netloc xlslice_1_Dout 1 1 4 NJ -270 400J -350 NJ -350 1270
 preplace netloc axi_video_gen_0_M_AXI 1 2 1 420 -480n
-preplace netloc axi_video_gen_0_SDIO 1 2 5 390J -500 NJ -500 NJ -500 NJ -500 NJ
+preplace netloc axi_video_gen_0_SDIO 1 2 5 NJ -460 NJ -460 NJ -460 1710J -500 NJ
 preplace netloc axi_video_out_0_M_AXI 1 2 1 420 -260n
 preplace netloc axi_video_out_0_TMDS 1 2 5 NJ 230 N 230 NJ 230 N 230 N
-preplace netloc processing_system7_0_DDR 1 4 3 1300J -150 1730 -170 N
+preplace netloc processing_system7_0_DDR 1 4 3 1310J -150 1730 -170 N
 preplace netloc processing_system7_0_FIXED_IO 1 4 3 1260J -130 1740 -150 2080
-preplace netloc processing_system7_0_M_AXI_GP0 1 4 2 NJ -120 1730
-preplace netloc ps7_0_axi_periph_M00_AXI 1 1 6 80 -180 410J -140 810J -220 1310J -140 NJ -140 2070
+preplace netloc processing_system7_0_M_AXI_GP0 1 4 2 NJ -120 1740
+preplace netloc ps7_0_axi_periph_M00_AXI 1 1 6 80 -180 410J -140 810J -220 1320J -140 NJ -140 2070
 preplace netloc smartconnect_0_M00_AXI 1 3 1 820 -240n
 levelinfo -pg 1 -170 -50 260 670 1050 1530 1920 2100
 pagesize -pg 1 -db -bbox -sgen -280 -670 2210 1060

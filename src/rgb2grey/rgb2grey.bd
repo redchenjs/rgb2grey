@@ -23,7 +23,8 @@
       "xlconcat_0": "",
       "xlslice_0": "",
       "axi_video_gen_0": "",
-      "axi_video_out_0": ""
+      "axi_video_out_0": "",
+      "xlslice_1": ""
     },
     "interface_ports": {
       "TMDS": {
@@ -941,6 +942,26 @@
             }
           }
         }
+      },
+      "xlslice_1": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "rgb2grey_xlslice_0_1",
+        "xci_path": "ip/rgb2grey_xlslice_0_1/rgb2grey_xlslice_0_1.xci",
+        "inst_hier_path": "xlslice_1",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "1"
+          },
+          "DIN_TO": {
+            "value": "1"
+          },
+          "DIN_WIDTH": {
+            "value": "2"
+          },
+          "DOUT_WIDTH": {
+            "value": "1"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1003,7 +1024,8 @@
       "BTN_1": {
         "ports": [
           "BTN",
-          "xlslice_0/Din"
+          "xlslice_0/Din",
+          "xlslice_1/Din"
         ]
       },
       "axi_video_gen_0_pic_load_data": {
@@ -1111,6 +1133,12 @@
         "ports": [
           "xlslice_0/Dout",
           "axi_video_gen_0/pic_load_init"
+        ]
+      },
+      "xlslice_1_Dout": {
+        "ports": [
+          "xlslice_1/Dout",
+          "rst_ps7_0_80M/aux_reset_in"
         ]
       }
     },
