@@ -26,14 +26,14 @@
 #define LOG_COLOR_D
 #define LOG_COLOR_V
 
-#define LOG_FORMAT(letter, format) LOG_COLOR_ ## letter #letter " (%u) %s: " format LOG_RESET_COLOR "\n"
+#define LOG_FORMAT(letter, format) LOG_COLOR_ ## letter #letter " (%u) %s: " format LOG_RESET_COLOR "\r\n"
 #define LOG_IMPL(tag, format, log_tag_letter, ...) xil_printf(LOG_FORMAT(log_tag_letter, format), log_get_timestamp(), tag, ##__VA_ARGS__);
 
-#define LOGE(tag, format, ...) LOG_IMPL(tag, format, E, ##__VA_ARGS__)
-#define LOGW(tag, format, ...) LOG_IMPL(tag, format, W, ##__VA_ARGS__)
-#define LOGI(tag, format, ...) LOG_IMPL(tag, format, I, ##__VA_ARGS__)
-#define LOGD(tag, format, ...) LOG_IMPL(tag, format, D, ##__VA_ARGS__)
-#define LOGV(tag, format, ...) LOG_IMPL(tag, format, V, ##__VA_ARGS__)
+#define OS_LOGE(tag, format, ...) LOG_IMPL(tag, format, E, ##__VA_ARGS__)
+#define OS_LOGW(tag, format, ...) LOG_IMPL(tag, format, W, ##__VA_ARGS__)
+#define OS_LOGI(tag, format, ...) LOG_IMPL(tag, format, I, ##__VA_ARGS__)
+#define OS_LOGD(tag, format, ...) LOG_IMPL(tag, format, D, ##__VA_ARGS__)
+#define OS_LOGV(tag, format, ...) LOG_IMPL(tag, format, V, ##__VA_ARGS__)
 
 extern uint32_t log_get_timestamp(void);
 

@@ -15,7 +15,7 @@
 #include "core/log.h"
 #include "user/disp.h"
 
-#define TAG "disp"
+#define TAG "dispT"
 
 static uint8_t frame[DISP_FRAME_SIZE] __attribute__((section(".video_ram")));
 
@@ -58,11 +58,13 @@ void disp_task(void *pvParameters)
 	DISP_START_ADDR = (uint32_t)frame;
 	VGEN_START_ADDR = (uint32_t)frame;
 
-	LOGI(TAG, "Display Mode: %lux%lu", DISP_VIDEO_MODE & 0xffff, (DISP_VIDEO_MODE >> 16) & 0xffff);
-	LOGI(TAG, "Frame Buffer: 0x%08lX", DISP_START_ADDR);
-	LOGI(TAG, "Video Buffer: 0x%08lX", VGEN_START_ADDR);
+	OS_LOGI(TAG, "Display Mode: %lux%lu", DISP_VIDEO_MODE & 0xffff, (DISP_VIDEO_MODE >> 16) & 0xffff);
+	OS_LOGI(TAG, "Frame Buffer: 0x%08lX", DISP_START_ADDR);
+	OS_LOGI(TAG, "Video Buffer: 0x%08lX", VGEN_START_ADDR);
 
 	disp_print_test_pattern(frame, DISP_FRAME_WIDTH, DISP_FRAME_HEIGHT, DISP_LINE_STRIDE);
+
+	OS_LOGI(TAG, "started.");
 
 	while (1) {
 		vTaskDelay(pdMS_TO_TICKS(1000UL));
