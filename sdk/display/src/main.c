@@ -12,9 +12,9 @@
 
 int main(void)
 {
-	xTaskCreate(disp_task, "dispT", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
+    xTaskCreate(disp_task, "dispT", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY, NULL);
 
-	vTaskStartScheduler();
+    vTaskStartScheduler();
 
-	return 0;
+    return 0;
 }

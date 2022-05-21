@@ -5,10 +5,10 @@
  *      Author: Jack Chen <redchenjs@live.com>
  */
 
-#ifndef INC_LOG_H_
-#define INC_LOG_H_
+#ifndef INC_CORE_LOG_H_
+#define INC_CORE_LOG_H_
 
-#include "xil_printf.h"
+#include <stdio.h>
 
 #define LOG_COLOR_BLACK   "30"
 #define LOG_COLOR_RED     "31"
@@ -26,15 +26,14 @@
 #define LOG_COLOR_D
 #define LOG_COLOR_V
 
-#define LOG_FORMAT(letter, format) LOG_COLOR_ ## letter #letter " (%u) %s: " format LOG_RESET_COLOR "\r\n"
-#define LOG_IMPL(tag, format, log_tag_letter, ...) xil_printf(LOG_FORMAT(log_tag_letter, format), log_get_timestamp(), tag, ##__VA_ARGS__);
+#define LOG_FORMAT(letter, format) LOG_COLOR_ ## letter #letter " (%lu) %s: " format LOG_RESET_COLOR "\r\n"
 
-#define OS_LOGE(tag, format, ...) LOG_IMPL(tag, format, E, ##__VA_ARGS__)
-#define OS_LOGW(tag, format, ...) LOG_IMPL(tag, format, W, ##__VA_ARGS__)
-#define OS_LOGI(tag, format, ...) LOG_IMPL(tag, format, I, ##__VA_ARGS__)
-#define OS_LOGD(tag, format, ...) LOG_IMPL(tag, format, D, ##__VA_ARGS__)
-#define OS_LOGV(tag, format, ...) LOG_IMPL(tag, format, V, ##__VA_ARGS__)
+#define LOG_E(tag, format, ...) printf(LOG_FORMAT(E, format), log_get_timestamp(), tag, ##__VA_ARGS__)
+#define LOG_W(tag, format, ...) printf(LOG_FORMAT(W, format), log_get_timestamp(), tag, ##__VA_ARGS__)
+#define LOG_I(tag, format, ...) printf(LOG_FORMAT(I, format), log_get_timestamp(), tag, ##__VA_ARGS__)
+#define LOG_D(tag, format, ...) printf(LOG_FORMAT(D, format), log_get_timestamp(), tag, ##__VA_ARGS__)
+#define LOG_V(tag, format, ...) printf(LOG_FORMAT(V, format), log_get_timestamp(), tag, ##__VA_ARGS__)
 
 extern uint32_t log_get_timestamp(void);
 
-#endif /* INC_LOG_H_ */
+#endif /* INC_CORE_LOG_H_ */
