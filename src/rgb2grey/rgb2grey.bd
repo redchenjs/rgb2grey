@@ -961,15 +961,6 @@
           "PCW_S_AXI_HP0_ID_WIDTH": {
             "value": "6"
           },
-          "PCW_S_AXI_HP1_DATA_WIDTH": {
-            "value": "64"
-          },
-          "PCW_S_AXI_HP2_DATA_WIDTH": {
-            "value": "64"
-          },
-          "PCW_S_AXI_HP3_DATA_WIDTH": {
-            "value": "64"
-          },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
           },
@@ -2058,8 +2049,8 @@
       },
       "xlslice_1": {
         "vlnv": "xilinx.com:ip:xlslice:1.0",
-        "xci_name": "rgb2grey_xlslice_0_1",
-        "xci_path": "ip/rgb2grey_xlslice_0_1/rgb2grey_xlslice_0_1.xci",
+        "xci_name": "rgb2grey_xlslice_1_0",
+        "xci_path": "ip/rgb2grey_xlslice_1_0/rgb2grey_xlslice_1_0.xci",
         "inst_hier_path": "xlslice_1",
         "parameters": {
           "DIN_FROM": {
@@ -2353,7 +2344,7 @@
               "SEG_processing_system7_0_HP0_DDR_LOWOCM": {
                 "address_block": "/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM",
                 "offset": "0x00000000",
-                "range": "512M"
+                "range": "1G"
               }
             }
           }
@@ -2366,7 +2357,7 @@
               "SEG_processing_system7_0_HP0_DDR_LOWOCM": {
                 "address_block": "/processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM",
                 "offset": "0x00000000",
-                "range": "512M"
+                "range": "1G"
               }
             }
           }
