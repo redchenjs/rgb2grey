@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (lin64) Build 3367213 Tue Oct 19 02:47:39 MDT 2021
-//Date        : Tue May 24 21:29:23 2022
+//Date        : Thu May 26 10:36:47 2022
 //Host        : ThinkBook running 64-bit Arch Linux
 //Command     : generate_target rgb2grey_wrapper.bd
 //Design      : rgb2grey_wrapper
