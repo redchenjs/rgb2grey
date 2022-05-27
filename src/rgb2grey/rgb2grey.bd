@@ -961,6 +961,15 @@
           "PCW_S_AXI_HP0_ID_WIDTH": {
             "value": "6"
           },
+          "PCW_S_AXI_HP1_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP2_DATA_WIDTH": {
+            "value": "64"
+          },
+          "PCW_S_AXI_HP3_DATA_WIDTH": {
+            "value": "64"
+          },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
           },
@@ -2084,7 +2093,7 @@
             },
             "parameters": {
               "master_id": {
-                "value": "2"
+                "value": "4"
               }
             }
           }
@@ -2115,7 +2124,7 @@
             },
             "parameters": {
               "master_id": {
-                "value": "3"
+                "value": "5"
               }
             }
           }
@@ -2134,7 +2143,7 @@
       "axi_video_gen_0_M_AXI": {
         "interface_ports": [
           "axi_video_gen_0/M_AXI",
-          "smartconnect_0/S00_AXI"
+          "smartconnect_0/S01_AXI"
         ]
       },
       "axi_video_gen_0_SDIO": {
@@ -2146,7 +2155,7 @@
       "axi_video_out_0_M_AXI": {
         "interface_ports": [
           "axi_video_out_0/M_AXI",
-          "smartconnect_0/S01_AXI"
+          "smartconnect_0/S00_AXI"
         ]
       },
       "axi_video_out_0_TMDS": {
@@ -2252,19 +2261,19 @@
           "ps7_0_axi_periph/S00_ACLK",
           "ps7_0_axi_periph/M00_ACLK",
           "rst_ps7_0_125M/slowest_sync_clk",
-          "smartconnect_0/aclk1",
           "axi_video_out_0/s_axi_aclk",
-          "axi_video_out_0/m_axi_aclk"
+          "axi_video_out_0/m_axi_aclk",
+          "smartconnect_0/aclk"
         ]
       },
       "processing_system7_0_FCLK_CLK1": {
         "ports": [
           "processing_system7_0/FCLK_CLK1",
           "rst_ps7_0_80M/slowest_sync_clk",
-          "smartconnect_0/aclk",
           "ps7_0_axi_periph/M01_ACLK",
           "axi_video_gen_0/s_axi_aclk",
-          "axi_video_gen_0/m_axi_aclk"
+          "axi_video_gen_0/m_axi_aclk",
+          "smartconnect_0/aclk1"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {

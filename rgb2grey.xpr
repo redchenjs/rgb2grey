@@ -63,13 +63,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="59"/>
-    <Option Name="WTModelSimExportSim" Val="59"/>
-    <Option Name="WTQuestaExportSim" Val="59"/>
+    <Option Name="WTXSimExportSim" Val="86"/>
+    <Option Name="WTModelSimExportSim" Val="86"/>
+    <Option Name="WTQuestaExportSim" Val="86"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="59"/>
-    <Option Name="WTRivieraExportSim" Val="59"/>
-    <Option Name="WTActivehdlExportSim" Val="59"/>
+    <Option Name="WTVcsExportSim" Val="86"/>
+    <Option Name="WTRivieraExportSim" Val="86"/>
+    <Option Name="WTActivehdlExportSim" Val="86"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -98,14 +98,17 @@
         <CompFileExtendedInfo CompFileName="rgb2grey.bd" FileRelPathName="ip/rgb2grey_axi_video_gen_0_0/rgb2grey_axi_video_gen_0_0.xci">
           <Proxy FileSetName="rgb2grey_axi_video_gen_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="rgb2grey.bd" FileRelPathName="ip/rgb2grey_rst_ps7_0_125M_0/rgb2grey_rst_ps7_0_125M_0.xci">
-          <Proxy FileSetName="rgb2grey_rst_ps7_0_125M_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="rgb2grey.bd" FileRelPathName="ip/rgb2grey_xbar_0/rgb2grey_xbar_0.xci">
           <Proxy FileSetName="rgb2grey_xbar_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="rgb2grey.bd" FileRelPathName="ip/rgb2grey_clk_wiz_0_0/rgb2grey_clk_wiz_0_0.xci">
           <Proxy FileSetName="rgb2grey_clk_wiz_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="rgb2grey.bd" FileRelPathName="ip/rgb2grey_rst_ps7_0_125M_0/rgb2grey_rst_ps7_0_125M_0.xci">
+          <Proxy FileSetName="rgb2grey_rst_ps7_0_125M_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="rgb2grey.bd" FileRelPathName="ip/rgb2grey_smartconnect_0_0/rgb2grey_smartconnect_0_0.xci">
+          <Proxy FileSetName="rgb2grey_smartconnect_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/src/rgb2grey/hdl/rgb2grey_wrapper.v">
@@ -191,6 +194,12 @@
     <FileSet Name="rgb2grey_axi_video_gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/rgb2grey_axi_video_gen_0_0" RelGenDir="$PGENDIR/rgb2grey_axi_video_gen_0_0">
       <Config>
         <Option Name="TopModule" Val="rgb2grey_axi_video_gen_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="rgb2grey_smartconnect_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/rgb2grey_smartconnect_0_0" RelGenDir="$PGENDIR/rgb2grey_smartconnect_0_0">
+      <Config>
+        <Option Name="TopModule" Val="rgb2grey_smartconnect_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -302,6 +311,16 @@
       <RQSFiles/>
     </Run>
     <Run Id="rgb2grey_axi_video_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="rgb2grey_axi_video_gen_0_0" Part="xc7z020clg400-3" ConstrsSet="rgb2grey_axi_video_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/rgb2grey_axi_video_gen_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/rgb2grey_axi_video_gen_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="rgb2grey_smartconnect_0_0_synth_1" Type="Ft3:Synth" SrcSet="rgb2grey_smartconnect_0_0" Part="xc7z020clg400-3" ConstrsSet="rgb2grey_smartconnect_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/rgb2grey_smartconnect_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/rgb2grey_smartconnect_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
@@ -530,6 +549,23 @@
       <RQSFiles/>
     </Run>
     <Run Id="rgb2grey_axi_video_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-3" ConstrsSet="rgb2grey_axi_video_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="rgb2grey_axi_video_gen_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/rgb2grey_axi_video_gen_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="rgb2grey_smartconnect_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-3" ConstrsSet="rgb2grey_smartconnect_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="rgb2grey_smartconnect_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/rgb2grey_smartconnect_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>

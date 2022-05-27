@@ -5,6 +5,9 @@
  *      Author: Jack Chen <redchenjs@live.com>
  */
 
+#include <stdio.h>
+#include <string.h>
+
 #include "xil_types.h"
 #include "xil_cache.h"
 #include "xparameters.h"
@@ -55,6 +58,9 @@ static void print_test_pattern(uint8_t *frame, uint32_t width, uint32_t height, 
 
 void disp_task(void *pvParameters)
 {
+    char file_name[17] = {0};
+    char file_index = 0;
+
     DISP_START_ADDR = (uint32_t)frame;
     VGEN_START_ADDR = (uint32_t)frame;
 
@@ -67,6 +73,26 @@ void disp_task(void *pvParameters)
     LOG_I(TAG, "started.");
 
     while (1) {
-        vTaskDelay(1000 / configTICK_RATE_HZ);
+        vTaskDelay(10000 / portTICK_PERIOD_MS);
+
+        memset(file_name, 0x00, sizeof(file_name));
+
+        snprintf(file_name, sizeof(file_name), "%s_%u.bmp", "pic", file_index++ % 10);
+
+        VGEN_FNAME_0   = *(uint32_t *)(file_name + 0x00);
+        VGEN_FNAME_1   = *(uint32_t *)(file_name + 0x04);
+        VGEN_FNAME_2   = *(uint32_t *)(file_name + 0x08);
+        VGEN_FNAME_3   = *(uint32_t *)(file_name + 0x0C);
+        VGEN_FNAME_LEN = strlen(file_name);
+        VGEN_STATUS    = 0x00000000;
+
+        memset(file_name, 0x00, sizeof(file_name));
+
+        *(uint32_t *)(file_name + 0x00) = VGEN_FNAME_0;
+        *(uint32_t *)(file_name + 0x04) = VGEN_FNAME_1;
+        *(uint32_t *)(file_name + 0x08) = VGEN_FNAME_2;
+        *(uint32_t *)(file_name + 0x0C) = VGEN_FNAME_3;
+
+        LOG_I(TAG, "File Name: \"%s\", Length: %lu, Status: 0x%04lX", file_name, VGEN_FNAME_LEN, VGEN_STATUS);
     }
 }
