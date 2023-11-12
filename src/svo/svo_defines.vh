@@ -58,6 +58,8 @@ localparam SVO_HOR_PIXELS = \
   SVO_MODE == "1680x1050" ? 1680 : \
   SVO_MODE == "320x200R" ? 320 : \
   SVO_MODE == "1920x1080R" ? 1920 : \
+  SVO_MODE == "1920x1080R2" ? 1920 : \
+  SVO_MODE == "1920x1080R3" ? 1920 : \
   SVO_MODE == "1920x1080" ? 1920 : \
   SVO_MODE == "2560x1440" ? 2560 : \
   SVO_MODE == "1440x900" ? 1440 : \
@@ -99,6 +101,8 @@ localparam SVO_HOR_PIXELS = \
   SVO_MODE == "1280x1024" ? 1280 : \
   SVO_MODE == "1280x768" ? 1280 : \
   SVO_MODE == "1280x720R" ? 1280 : \
+  SVO_MODE == "1280x720R2" ? 1280 : \
+  SVO_MODE == "1280x720R3" ? 1280 : \
   SVO_MODE == "2560x1600R" ? 2560 : \
   SVO_MODE == "320x240R" ? 320 : \
   'bx; \
@@ -139,6 +143,8 @@ localparam SVO_VER_PIXELS = \
   SVO_MODE == "1680x1050" ? 1050 : \
   SVO_MODE == "320x200R" ? 200 : \
   SVO_MODE == "1920x1080R" ? 1080 : \
+  SVO_MODE == "1920x1080R2" ? 1080 : \
+  SVO_MODE == "1920x1080R3" ? 1080 : \
   SVO_MODE == "1920x1080" ? 1080 : \
   SVO_MODE == "2560x1440" ? 1440 : \
   SVO_MODE == "1440x900" ? 900 : \
@@ -180,6 +186,8 @@ localparam SVO_VER_PIXELS = \
   SVO_MODE == "1280x1024" ? 1024 : \
   SVO_MODE == "1280x768" ? 768 : \
   SVO_MODE == "1280x720R" ? 720 : \
+  SVO_MODE == "1280x720R2" ? 720 : \
+  SVO_MODE == "1280x720R3" ? 720 : \
   SVO_MODE == "2560x1600R" ? 1600 : \
   SVO_MODE == "320x240R" ? 240 : \
   'bx; \
@@ -220,6 +228,8 @@ localparam SVO_HOR_FRONT_PORCH = \
   SVO_MODE == "1680x1050" ? 104 : \
   SVO_MODE == "320x200R" ? 48 : \
   SVO_MODE == "1920x1080R" ? 48 : \
+  SVO_MODE == "1920x1080R2" ? 48 : \
+  SVO_MODE == "1920x1080R3" ? 8 : \
   SVO_MODE == "1920x1080" ? 128 : \
   SVO_MODE == "2560x1440" ? 192 : \
   SVO_MODE == "1440x900" ? 88 : \
@@ -261,6 +271,8 @@ localparam SVO_HOR_FRONT_PORCH = \
   SVO_MODE == "1280x1024" ? 88 : \
   SVO_MODE == "1280x768" ? 64 : \
   SVO_MODE == "1280x720R" ? 48 : \
+  SVO_MODE == "1280x720R2" ? 48 : \
+  SVO_MODE == "1280x720R3" ? 8 : \
   SVO_MODE == "2560x1600R" ? 48 : \
   SVO_MODE == "320x240R" ? 48 : \
   'bx; \
@@ -301,6 +313,8 @@ localparam SVO_HOR_SYNC = \
   SVO_MODE == "1680x1050" ? 176 : \
   SVO_MODE == "320x200R" ? 32 : \
   SVO_MODE == "1920x1080R" ? 32 : \
+  SVO_MODE == "1920x1080R2" ? 32 : \
+  SVO_MODE == "1920x1080R3" ? 32 : \
   SVO_MODE == "1920x1080" ? 200 : \
   SVO_MODE == "2560x1440" ? 272 : \
   SVO_MODE == "1440x900" ? 144 : \
@@ -342,6 +356,8 @@ localparam SVO_HOR_SYNC = \
   SVO_MODE == "1280x1024" ? 128 : \
   SVO_MODE == "1280x768" ? 128 : \
   SVO_MODE == "1280x720R" ? 32 : \
+  SVO_MODE == "1280x720R2" ? 32 : \
+  SVO_MODE == "1280x720R3" ? 32 : \
   SVO_MODE == "2560x1600R" ? 32 : \
   SVO_MODE == "320x240R" ? 32 : \
   'bx; \
@@ -382,6 +398,8 @@ localparam SVO_HOR_BACK_PORCH = \
   SVO_MODE == "1680x1050" ? 280 : \
   SVO_MODE == "320x200R" ? 80 : \
   SVO_MODE == "1920x1080R" ? 80 : \
+  SVO_MODE == "1920x1080R2" ? 0 : \
+  SVO_MODE == "1920x1080R3" ? 40 : \
   SVO_MODE == "1920x1080" ? 328 : \
   SVO_MODE == "2560x1440" ? 464 : \
   SVO_MODE == "1440x900" ? 232 : \
@@ -423,6 +441,8 @@ localparam SVO_HOR_BACK_PORCH = \
   SVO_MODE == "1280x1024" ? 216 : \
   SVO_MODE == "1280x768" ? 192 : \
   SVO_MODE == "1280x720R" ? 80 : \
+  SVO_MODE == "1280x720R2" ? 0 : \
+  SVO_MODE == "1280x720R3" ? 40 : \
   SVO_MODE == "2560x1600R" ? 80 : \
   SVO_MODE == "320x240R" ? 80 : \
   'bx; \
@@ -463,6 +483,8 @@ localparam SVO_VER_FRONT_PORCH = \
   SVO_MODE == "1680x1050" ? 3 : \
   SVO_MODE == "320x200R" ? 3 : \
   SVO_MODE == "1920x1080R" ? 3 : \
+  SVO_MODE == "1920x1080R2" ? 17 : \
+  SVO_MODE == "1920x1080R3" ? 17 : \
   SVO_MODE == "1920x1080" ? 3 : \
   SVO_MODE == "2560x1440" ? 3 : \
   SVO_MODE == "1440x900" ? 3 : \
@@ -504,6 +526,8 @@ localparam SVO_VER_FRONT_PORCH = \
   SVO_MODE == "1280x1024" ? 3 : \
   SVO_MODE == "1280x768" ? 3 : \
   SVO_MODE == "1280x720R" ? 3 : \
+  SVO_MODE == "1280x720R2" ? 7 : \
+  SVO_MODE == "1280x720R3" ? 7 : \
   SVO_MODE == "2560x1600R" ? 3 : \
   SVO_MODE == "320x240R" ? 3 : \
   'bx; \
@@ -544,6 +568,8 @@ localparam SVO_VER_SYNC = \
   SVO_MODE == "1680x1050" ? 6 : \
   SVO_MODE == "320x200R" ? 6 : \
   SVO_MODE == "1920x1080R" ? 5 : \
+  SVO_MODE == "1920x1080R2" ? 8 : \
+  SVO_MODE == "1920x1080R3" ? 8 : \
   SVO_MODE == "1920x1080" ? 5 : \
   SVO_MODE == "2560x1440" ? 5 : \
   SVO_MODE == "1440x900" ? 6 : \
@@ -585,6 +611,8 @@ localparam SVO_VER_SYNC = \
   SVO_MODE == "1280x1024" ? 7 : \
   SVO_MODE == "1280x768" ? 10 : \
   SVO_MODE == "1280x720R" ? 5 : \
+  SVO_MODE == "1280x720R2" ? 8 : \
+  SVO_MODE == "1280x720R3" ? 8 : \
   SVO_MODE == "2560x1600R" ? 6 : \
   SVO_MODE == "320x240R" ? 4 : \
   'bx; \
@@ -625,6 +653,8 @@ localparam SVO_VER_BACK_PORCH = \
   SVO_MODE == "1680x1050" ? 30 : \
   SVO_MODE == "320x200R" ? 6 : \
   SVO_MODE == "1920x1080R" ? 23 : \
+  SVO_MODE == "1920x1080R2" ? 6 : \
+  SVO_MODE == "1920x1080R3" ? 6 : \
   SVO_MODE == "1920x1080" ? 32 : \
   SVO_MODE == "2560x1440" ? 45 : \
   SVO_MODE == "1440x900" ? 25 : \
@@ -666,6 +696,8 @@ localparam SVO_VER_BACK_PORCH = \
   SVO_MODE == "1280x1024" ? 29 : \
   SVO_MODE == "1280x768" ? 17 : \
   SVO_MODE == "1280x720R" ? 13 : \
+  SVO_MODE == "1280x720R2" ? 6 : \
+  SVO_MODE == "1280x720R3" ? 6 : \
   SVO_MODE == "2560x1600R" ? 37 : \
   SVO_MODE == "320x240R" ? 6 : \
   'bx; \
