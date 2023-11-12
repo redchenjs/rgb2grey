@@ -5,8 +5,12 @@
     <Version>5</Version>
     <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
     <FileList>
-        <File path="ip/pll/pll.v" type="file.verilog" enable="1"/>
         <File path="ip/clkdiv/clkdiv.v" type="file.verilog" enable="1"/>
+        <File path="ip/pll/pll.v" type="file.verilog" enable="1"/>
+        <File path="src/conv/par2ser_10b.sv" type="file.verilog" enable="1"/>
+        <File path="src/dvi/dvi_tx.sv" type="file.verilog" enable="1"/>
+        <File path="src/rgb2grey.sv" type="file.verilog" enable="1"/>
+        <File path="src/rst_syn.sv" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_defines.vh" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_enc.v" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_openldi.v" type="file.verilog" enable="1"/>
@@ -16,11 +20,11 @@
         <File path="src/svo/svo_tmds.v" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_utils.v" type="file.verilog" enable="1"/>
         <File path="src/svo/svo_vdma.v" type="file.verilog" enable="1"/>
-        <File path="src/rst_syn.sv" type="file.verilog" enable="1"/>
         <File path="src/sys_ctl.sv" type="file.verilog" enable="1"/>
+        <File path="src/tmds/tmds_encoder.sv" type="file.verilog" enable="1"/>
+        <File path="src/vendor/vendor_pkg.sv" type="file.verilog" enable="1"/>
         <File path="src/video_gen.sv" type="file.verilog" enable="1"/>
         <File path="src/video_out.sv" type="file.verilog" enable="1"/>
-        <File path="src/rgb2grey.sv" type="file.verilog" enable="1"/>
         <File path="cst/rgb2grey.cst" type="file.cst" enable="1"/>
         <File path="cst/rgb2grey.sdc" type="file.sdc" enable="1"/>
     </FileList>

@@ -1,12 +1,13 @@
 -series GW1NR
--device GW1NR-9C
+-device GW1NR-9
+-device_version C
 -package QFN88P
 -part_number GW1NR-LV9QN88PC6/I5
 
 
 -mod_name pll
 -file_name pll
--path D:/Projects/Gowin/rgb2grey/ip/pll/
+-path D:/Works/Gowin/rgb2grey/ip/pll/
 -type PLL
 -rPll true
 -file_type vlg
@@ -14,7 +15,7 @@
 -dyn_idiv_sel false
 -idiv_sel 3
 -dyn_fbdiv_sel false
--fbdiv_sel 40
+-fbdiv_sel 61
 -dyn_odiv_sel false
 -odiv_sel 2
 -dyn_da_en true
