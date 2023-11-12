@@ -1,13 +1,13 @@
-IO_LOC  "clk_i" 52;
+IO_LOC  "clk_i" 45;
 IO_PORT "clk_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
-IO_LOC  "rst_n_i" 4;
-IO_PORT "rst_n_i" PULL_MODE=UP;
+IO_LOC  "rst_n_i" 14;
+IO_PORT "rst_n_i" IO_TYPE=LVCMOS33 PULL_MODE=UP;
 
-IO_LOC  "tmds_clk_o_p" 69,68;
-IO_PORT "tmds_clk_o_p" PULL_MODE=NONE DRIVE=8;
-IO_LOC  "tmds_data_o_p[2]" 75,74;
-IO_PORT "tmds_data_o_p[2]" PULL_MODE=NONE DRIVE=8;
-IO_LOC  "tmds_data_o_p[1]" 73,72;
-IO_PORT "tmds_data_o_p[1]" PULL_MODE=NONE DRIVE=8;
-IO_LOC  "tmds_data_o_p[0]" 71,70;
-IO_PORT "tmds_data_o_p[0]" PULL_MODE=NONE DRIVE=8;
+IO_LOC  "tmds_clk_o_p" 28,27;
+IO_PORT "tmds_clk_o_p" IO_TYPE=LVDS25E;
+IO_LOC  "tmds_data_o_p[2]" 35,34;
+IO_PORT "tmds_data_o_p[2]" IO_TYPE=LVDS25E;
+IO_LOC  "tmds_data_o_p[1]" 32,31;
+IO_PORT "tmds_data_o_p[1]" IO_TYPE=LVDS25E;
+IO_LOC  "tmds_data_o_p[0]" 30,29;
+IO_PORT "tmds_data_o_p[0]" IO_TYPE=LVDS25E;

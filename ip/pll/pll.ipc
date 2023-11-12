@@ -2,8 +2,8 @@
 ipc_version=4
 file=pll
 module=pll
-target_device=gw1nr9c-004
-type=clock_rpll
+target_device=gw1nsr4c-000
+type=clock_pllvr
 version=1.0
 
 [Config]
@@ -14,7 +14,7 @@ CLKOUTD=false
 CLKOUTP=false
 CLKOUT_BYPASS=false
 CLKOUT_DIVIDE_DYN=true
-CLKOUT_FREQ=360
+CLKOUT_FREQ=549
 CLKOUT_TOLERANCE=0
 DYNAMIC=true
 LANG=0
@@ -22,3 +22,4 @@ LOCK_EN=true
 MODE_GENERAL=true
 PLL_PWD=false
 RESET_PLL=true
+PLL_REGULATOR=false

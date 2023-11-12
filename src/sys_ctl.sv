@@ -30,10 +30,6 @@ clkdiv clkdiv(
     .resetn(rst_n_i & pll_locked)
 );
 
-rst_syn rst_n_syn(
-    .clk_i(sys_clk_o),
-    .rst_n_i(rst_n_i & pll_locked),
-    .rst_n_o(sys_rst_n_o)
-);
+assign sys_rst_n_o = rst_n_i & pll_locked;
 
 endmodule

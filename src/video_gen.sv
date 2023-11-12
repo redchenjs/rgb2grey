@@ -5,6 +5,8 @@
  *      Author: Jack Chen <redchenjs@live.com>
  */
 
+import vendor_pkg::*;
+
 `include "svo/svo_defines.vh"
 
 module video_gen(
@@ -19,8 +21,8 @@ module video_gen(
     output logic [2:0] tmds_data_o_n
 );
 
-localparam SVO_MODE           = "1366x768R";
-localparam SVO_FRAMERATE      = 60;
+localparam SVO_MODE           = "1920x1080R3";
+localparam SVO_FRAMERATE      = 50;
 localparam SVO_BITS_PER_PIXEL = 24;
 localparam SVO_BITS_PER_RED   = 8;
 localparam SVO_BITS_PER_GREEN = 8;
@@ -94,57 +96,60 @@ svo_enc #(`SVO_PASS_PARAMS) svo_enc(
     .out_axis_tuser(video_enc_tuser)
 );
 
-svo_tmds svo_tmds_0(
-    .clk(clk_i),
-    .resetn(rst_n_i),
-    .de(!video_enc_tuser[3]),
-    .ctrl(video_enc_tuser[2:1]),
-    .din(video_enc_tdata[23:16]),
-    .dout({tmds_d9[0], tmds_d8[0], tmds_d7[0], tmds_d6[0], tmds_d5[0],
-           tmds_d4[0], tmds_d3[0], tmds_d2[0], tmds_d1[0], tmds_d0[0]})
-);
-
-svo_tmds svo_tmds_1(
-    .clk(clk_i),
-    .resetn(rst_n_i),
-    .de(!video_enc_tuser[3]),
-    .ctrl(2'b0),
-    .din(video_enc_tdata[15:8]),
-    .dout({tmds_d9[1], tmds_d8[1], tmds_d7[1], tmds_d6[1], tmds_d5[1],
-           tmds_d4[1], tmds_d3[1], tmds_d2[1], tmds_d1[1], tmds_d0[1]})
-);
-
-svo_tmds svo_tmds_2(
-    .clk(clk_i),
-    .resetn(rst_n_i),
-    .de(!video_enc_tuser[3]),
-    .ctrl(2'b0),
-    .din(video_enc_tdata[7:0]),
-    .dout({tmds_d9[2], tmds_d8[2], tmds_d7[2], tmds_d6[2], tmds_d5[2],
-           tmds_d4[2], tmds_d3[2], tmds_d2[2], tmds_d1[2], tmds_d0[2]})
-);
-
-video_out video_out(
+dvi_tx #(
+    .VENDOR(VENDOR_GOWIN)
+) dvi_tx(
     .clk_i(clk_i),
     .rst_n_i(rst_n_i),
 
     .clk_5x_i(clk_5x_i),
 
-    .tmds_d0_i(tmds_d0),
-    .tmds_d1_i(tmds_d1),
-    .tmds_d2_i(tmds_d2),
-    .tmds_d3_i(tmds_d3),
-    .tmds_d4_i(tmds_d4),
-    .tmds_d5_i(tmds_d5),
-    .tmds_d6_i(tmds_d6),
-    .tmds_d7_i(tmds_d7),
-    .tmds_d8_i(tmds_d8),
-    .tmds_d9_i(tmds_d9),
+    .de_i(!video_enc_tuser[3]),
+    .hsync_i(video_enc_tuser[1]),
+    .vsync_i(video_enc_tuser[2]),
+    .pixel_i(video_enc_tdata),
 
-    .tmds_clk_o_p(tmds_clk_o_p),
-    .tmds_clk_o_n(tmds_clk_o_n),
-    .tmds_data_o_p(tmds_data_o_p),
-    .tmds_data_o_n(tmds_data_o_n)
+    .tmds_o({{tmds_clk_o_p, tmds_data_o_p}, 
+             {tmds_clk_o_n, tmds_data_o_n}})
 );
+
+//svo_tmds svo_tmds_0(
+//    .clk(clk_i),
+//    .resetn(rst_n_i),
+//    .de(!video_enc_tuser[3]),
+//    .ctrl(video_enc_tuser[2:1]),
+//    .din(video_enc_tdata[23:16]),
+//    .dout({tmds_d9[0], tmds_d8[0], tmds_d7[0], tmds_d6[0], tmds_d5[0],
+//           tmds_d4[0], tmds_d3[0], tmds_d2[0], tmds_d1[0], tmds_d0[0]})
+//);
+
+//svo_tmds svo_tmds_1(
+//    .clk(clk_i),
+//    .resetn(rst_n_i),
+//    .de(!video_enc_tuser[3]),
+//    .ctrl(2'b0),
+//    .din(video_enc_tdata[15:8]),
+//    .dout({tmds_d9[1], tmds_d8[1], tmds_d7[1], tmds_d6[1], tmds_d5[1],
+//           tmds_d4[1], tmds_d3[1], tmds_d2[1], tmds_d1[1], tmds_d0[1]})
+//);
+
+//svo_tmds svo_tmds_2(
+//    .clk(clk_i),
+//    .resetn(rst_n_i),
+//    .de(!video_enc_tuser[3]),
+//    .ctrl(2'b0),
+//    .din(video_enc_tdata[7:0]),
+//    .dout({tmds_d9[2], tmds_d8[2], tmds_d7[2], tmds_d6[2], tmds_d5[2],
+//           tmds_d4[2], tmds_d3[2], tmds_d2[2], tmds_d1[2], tmds_d0[2]})
+//);
+///logic [2:0] [9:0] par_data;
+///generate ///    genvar i;///    for (i = 0; i < 3; i++) begin///        assign tmds_d0[i] = par_data[i][0];///        assign tmds_d1[i] = par_data[i][1];///        assign tmds_d2[i] = par_data[i][2];///        assign tmds_d3[i] = par_data[i][3];///        assign tmds_d4[i] = par_data[i][4];///        assign tmds_d5[i] = par_data[i][5];///        assign tmds_d6[i] = par_data[i][6];///        assign tmds_d7[i] = par_data[i][7];///        assign tmds_d8[i] = par_data[i][8];///        assign tmds_d9[i] = par_data[i][9];///    end///endgenerate
+///tmds_encoder tmds_encoder [2:0] (///    .clk_i(clk_i),///    .rst_n_i(rst_n_i),
+///    .de_i({3{!video_enc_tuser[3]}}),///    .c1_i({2'b0, video_enc_tuser[2]}),///    .c0_i({2'b0, video_enc_tuser[1]}),
+///    .d_i(video_enc_tdata),///    .q_o(par_data)///);
+///video_out video_out(///    .clk_i(clk_i),///    .rst_n_i(rst_n_i),
+///    .clk_5x_i(clk_5x_i),
+///    .tmds_d0_i(tmds_d0),///    .tmds_d1_i(tmds_d1),///    .tmds_d2_i(tmds_d2),///    .tmds_d3_i(tmds_d3),///    .tmds_d4_i(tmds_d4),///    .tmds_d5_i(tmds_d5),///    .tmds_d6_i(tmds_d6),///    .tmds_d7_i(tmds_d7),///    .tmds_d8_i(tmds_d8),///    .tmds_d9_i(tmds_d9),
+///    .tmds_clk_o_p(tmds_clk_o_p),///    .tmds_clk_o_n(tmds_clk_o_n),///    .tmds_data_o_p(tmds_data_o_p),///    .tmds_data_o_n(tmds_data_o_n)///);
 
 endmodule
