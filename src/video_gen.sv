@@ -19,7 +19,7 @@ module video_gen(
     output logic [2:0] tmds_data_o_n
 );
 
-localparam SVO_MODE           = "1366x768R";
+localparam SVO_MODE           = "1280x720R3";
 localparam SVO_FRAMERATE      = 60;
 localparam SVO_BITS_PER_PIXEL = 24;
 localparam SVO_BITS_PER_RED   = 8;
@@ -59,34 +59,34 @@ svo_tcard #(`SVO_PASS_PARAMS) svo_tcard(
     .out_axis_tuser(s1_axis_tuser)
 );
 
-svo_pong #(`SVO_PASS_PARAMS) svo_pong(
-    .clk(clk_i),
-    .resetn(rst_n_i),
-    .resetn_game(1'b1),
-    .enable(1'b1),
+//svo_pong #(`SVO_PASS_PARAMS) svo_pong(
+//    .clk(clk_i),
+//    .resetn(rst_n_i),
+//    .resetn_game(1'b1),
+//    .enable(1'b1),
 
-    .btn(auto_btn),
-    .auto_btn(auto_btn),
+//    .btn(auto_btn),
+//    .auto_btn(auto_btn),
 
-    .in_axis_tvalid(s1_axis_tvalid),
-    .in_axis_tready(s1_axis_tready),
-    .in_axis_tdata(s1_axis_tdata),
-    .in_axis_tuser(s1_axis_tuser),
+//    .in_axis_tvalid(s1_axis_tvalid),
+//    .in_axis_tready(s1_axis_tready),
+//    .in_axis_tdata(s1_axis_tdata),
+//    .in_axis_tuser(s1_axis_tuser),
 
-    .out_axis_tvalid(s2_axis_tvalid),
-    .out_axis_tready(s2_axis_tready),
-    .out_axis_tdata(s2_axis_tdata),
-    .out_axis_tuser(s2_axis_tuser)
-);
+//    .out_axis_tvalid(s2_axis_tvalid),
+//    .out_axis_tready(s2_axis_tready),
+//    .out_axis_tdata(s2_axis_tdata),
+//    .out_axis_tuser(s2_axis_tuser)
+//);
 
 svo_enc #(`SVO_PASS_PARAMS) svo_enc(
     .clk(clk_i),
     .resetn(rst_n_i),
 
-    .in_axis_tvalid(s2_axis_tvalid),
-    .in_axis_tready(s2_axis_tready),
-    .in_axis_tdata(s2_axis_tdata),
-    .in_axis_tuser(s2_axis_tuser),
+    .in_axis_tvalid(s1_axis_tvalid),
+    .in_axis_tready(s1_axis_tready),
+    .in_axis_tdata(s1_axis_tdata),
+    .in_axis_tuser(s1_axis_tuser),
 
     .out_axis_tvalid(video_enc_tvalid),
     .out_axis_tready(video_enc_tready),

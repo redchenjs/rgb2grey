@@ -9,16 +9,35 @@ module rgb2grey(
     input logic clk_i,
     input logic rst_n_i,
 
+    input logic       dvp_pclk_i,
+    input logic       dvp_hsync_i,
+    input logic       dvp_vsync_i,
+    input logic [7:0] dvp_data_i,
+
+    inout logic dvp_scl_io,
+    inout logic dvp_sda_io,
+
+    output logic dvp_xclk_o,
+    output logic dvp_af_vcc_o,
+    output logic dvp_af_gnd_o,
+
     output logic       tmds_clk_o_p,
     output logic       tmds_clk_o_n,
     output logic [2:0] tmds_data_o_p,
-    output logic [2:0] tmds_data_o_n
+    output logic [2:0] tmds_data_o_n,
+
+    output logic led_o
 );
 
 logic sys_clk;
 logic sys_rst_n;
 
 logic aux_clk;
+
+assign dvp_af_vcc_o = 1'b1;
+assign dvp_af_gnd_o = 1'b0;
+
+assign led_o = sys_rst_n;
 
 sys_ctl sys_ctl(
     .clk_i(clk_i),
